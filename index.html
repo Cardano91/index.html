@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zar Atma Oyunu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .game-container {
+      text-align: center;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    .dice-image {
+      width: 100px;
+      height: 100px;
+      margin: 20px 0;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <h1>Zar Atma Oyunu</h1>
+    <img id="dice" class="dice-image" src="https://www.random.org/dice/dice6.png" alt="Zar Görseli">
+    <br>
+    <button class="button" onclick="rollDice()">Zarı At</button>
+    <div id="result" class="result">Sonuç: </div>
+  </div>
+
+  <script>
+    function rollDice() {
+      // Zarın rastgele bir sayı oluşturmasını sağla (1 ile 6 arası)
+      const diceNumber = Math.floor(Math.random() * 6) + 1;
+      
+      // Zar görselini değiştir
+      const diceImage = document.getElementById('dice');
+      diceImage.src = `https://www.random.org/dice/dice6.png?dice=${diceNumber}`;
+      
+      // Sonucu göster
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `Sonuç: ${diceNumber}`;
+    }
+  </script>
+</body>
+</html>
